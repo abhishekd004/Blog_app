@@ -1,6 +1,14 @@
-<h1>Welcome to new</h1>
+<h1>Create A New Article</h1>
+<% if @article.errors.any? %>
+    <h2>There are the following errors</h2>
+    <ul>
+    <% @article.errors.full_messages.each do |mssg| %>
+        <li><%= mssg %></li>
+    <%end%>
+    </ul>
+<%end%>        
 
-<%= form_with scope: :articles ,url: articles_path, local: true do |f|%>
+<%= form_with scope: :article ,url: articles_path, local: true do |f|%>
     <p>
         <%= f.label :title%><br>
         <%= f.text_field :title %>
