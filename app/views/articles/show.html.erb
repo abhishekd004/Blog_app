@@ -7,6 +7,9 @@
             by <%= @article.user.username if @article.user %>
             <%= link_to gravatar_for(@article.user, size: 70), user_path(@article.user) %> 
             <!--we can use @article.user instead of user_path(@article.user)-->
+            <% if @article.categories.any? %>
+                <% render @article.categories %>
+            <% end %>
             </div>
             <div class="card-body">
             <div class="card-text text-left"><%= simple_format(@article.description) %></div>
@@ -17,7 +20,7 @@
             </div>
             <div class="card-footer text-muted">
             <small>Created ago <%= time_ago_in_words(@article.created_at) %>,
-            edited <%= time_ago_in_words(@article.updated_at) %>ago </small>
+            edited <%= time_ago_in_words(@article.updated_at) %> ago </small>
             </div>
         </div>
     </div>
