@@ -4,6 +4,13 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    user ||= User.new
+
+    alias_action :create, :read, :update, :destroy, :to => :crud
+
+    can :read, :all
+
+    can :crud, Category if user.admin?
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)
