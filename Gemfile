@@ -25,6 +25,9 @@ gem 'will_paginate', '~> 3.3'
 gem 'rexml', require: false
 gem 'cocoon'
 
+gem 'cancancan'
+gem 'acts_as_paranoid'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

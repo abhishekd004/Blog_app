@@ -1,6 +1,9 @@
 class CategoriesController < ApplicationController
   before_action :require_admin, except: [:index, :show]
+  load_and_authorize_resource
+
   def new
+    #@ability = Ability.new(current_user)
     @category = Category.new
   end
 
